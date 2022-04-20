@@ -5,23 +5,15 @@ connectDB();
 
 const express = require('express');
 const cors = require('cors');
+const authRoute = require('./routes/authRoute');
+const postRoute = require('./routes/postRoute');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-
-app.get('/', (req, res) => {
-    res.status(200).json({
-        status: 'success',
-        data: {
-            posts:[{
-                title: 'First Post',
-                body: 'This is the first post'
-            }]
-        }
-    });
-});
+app.use('/api/v1/auth', authRoute);
+app.use('/api/v1/posts', postRoute);
 
 const port = process.env.APP_PORT || 5000;
 
