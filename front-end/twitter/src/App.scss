@@ -1,38 +1,91 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.container-twitter {
+  background: rgb(22, 3, 63);
   color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  a {
+    color: white;
   }
-  to {
-    transform: rotate(360deg);
+
+  .App {
+    width: 800px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+
+      .leftMenu {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+
+    .form-twitter {
+      margin: 50px 0 20px 0;
+
+      textarea {
+        width: 100%;
+        color: black;
+      }
+
+      .addTwitter {
+        display: flex;
+        justify-content: end;
+      }
+    }
+
+    .list-twitter {
+      background: rgb(80, 50, 120);
+      padding: 10px;
+
+      .content-twitter {
+        margin: 0 0 10px 0;
+      }
+
+      .action-twitter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .info-twitter {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .action-twitter {
+          @extend .info-twitter;
+        }
+      }
+
+      .update-twitter {
+        margin: 15px 0;
+        padding: 15px;
+        background: rgb(88, 173, 173);
+      }
+
+      .btn-action {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        justify-content: end;
+      }
+    }
+
+    .login,
+    .register {
+      text-align: center;
+      border: 1px solid rgb(88, 173, 173);
+      padding: 15px;
+      width: 50%;
+      margin: 15px auto;
+
+      input {
+        margin: 10px 0;
+      }
+    }
   }
 }
