@@ -1,4 +1,4 @@
-const Post = require('../models/post');
+const Post = require('../models/Post');
 
 // get all posts
 exports.getAllPosts = async(req, res, next) => {
@@ -23,8 +23,8 @@ exports.createPost = async(req, res, next) => {
             status: 'success',
             data: {post}
         });
-    }catch(err){
-        res.json(err)
+    }catch(error){
+        res.json(error)
     }
 }
 
@@ -32,13 +32,13 @@ exports.createPost = async(req, res, next) => {
 exports.updatePost = async(req, res, next) => {
     try{
         const {postId} = req.params;
-        const post = await Post.findByIdAndUpdate(postId, {...req.body, runValidator: true});
+        const post = await Post.findByIdAndUpdate(postId, {...req.body},{new: true, runValidator: true});
         res.status(200).json({
             status: 'success',
             data: {post}
         });
-    }catch(err){
-        res.json(err)
+    }catch(error){
+        res.json(error)
     }
 }
 
@@ -46,13 +46,13 @@ exports.updatePost = async(req, res, next) => {
 exports.deletePost = async(req, res, next) => {
     try{
         const {postId} = req.params;
-        await Post.findByIdAndUpdate(postId);
+        await Post.findByIdAndDelete(postId);
         res.status(200).json({
             status: 'success',
             message : 'Post deleted successfully'
         });
-    }catch(err){
-        res.json(err)
+    }catch(error){
+        res.json(error)
     }
 }
 

@@ -6,10 +6,13 @@ exports.verifyToken = (req, res, next) => {
 
     if(!Authorization){
         // 401: Unauthorized
+        const err = new Error('Unauthorized');
+        err.status = 401;
+        return next(error);
     }
 
     // get token
-    const token = Authorization.replace('Bearer', '');
+    const token = Authorization.replace('Bearer ', '');
 
     // verify token
     const {userId} = jwt.verify(token, process.env.APP_SECRET);
